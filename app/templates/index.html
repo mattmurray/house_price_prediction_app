@@ -1,0 +1,106 @@
+
+{% extends 'base.html' %}
+
+{% block body %}
+  <section class="header">
+    <h1 class="title">Property Price Prediction</h1>
+    <p>Based on the House Sales in King County data set available from <a href="https://www.kaggle.com/harlfoxem/housesalesprediction", target="_blank">Kaggle.</a></p>
+  </section>
+  <hr />
+
+  <div class="content">
+    <form method="POST">
+      {{ form.hidden_tag() }}
+
+      <div class="row">
+        <div class="four columns">
+          {{ form.bedrooms.label }} {{ form.bedrooms() }}
+        </div>
+        <div class="four columns">
+          {{ form.bathrooms.label }} {{ form.bathrooms() }}
+        </div>
+        <div class="four columns">
+          {{ form.floors.label }} {{ form.floors() }}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="four columns">
+          {{ form.waterfront.label }} {{ form.waterfront() }}
+        </div>
+        <div class="four columns">
+          {{ form.view.label }} {{ form.view() }}
+        </div>
+        <div class="four columns">
+          {{ form.condition.label }} {{ form.condition() }}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="four columns">
+          {{ form.grade.label }} {{ form.grade() }}
+        </div>
+        <div class="four columns">
+          {{ form.yr_built.label }} {{ form.yr_built() }}
+        </div>
+        <div class="four columns">
+          {{ form.yr_renovated.label }} {{ form.yr_renovated() }}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="four columns">
+          {{ form.sqft_living.label }} {{ form.sqft_living() }}
+        </div>
+        <div class="four columns">
+          {{ form.sqft_lot.label }} {{ form.sqft_lot() }}
+        </div>
+        <div class="four columns">
+          {{ form.sqft_above.label }} {{ form.sqft_above() }}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="four columns">
+          {{ form.sqft_basement.label }} {{ form.sqft_basement() }}
+        </div>
+        <div class="four columns">
+          {{ form.sqft_living15.label }} {{ form.sqft_living15() }}
+        </div>
+        <div class="four columns">
+          {{ form.sqft_lot15.label }} {{ form.sqft_lot15() }}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="eight columns">
+          {{ form.zipcode.label }} {{ form.zipcode() }}
+        </div>
+      </div>
+
+      <div class="row">
+        <button type="submit" class="button-primary">Submit</button>
+      </div>
+
+    </form>
+
+    {% if prediction %}
+      <div class="row">
+        <div class="eight columns">
+          <h3>Predicted price: {{ prediction }}</h3>
+        </div>
+        <div class="four columns">
+         <!--  Your Chart or any other form of visualizations -->
+         <div id="chart"></div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+{% endblock body %}
+
+{% block js %}
+  <script type="text/javascript">
+  // your JS Code
+  // Your D3 code could be here
+  </script>
+{% endblock js %}
